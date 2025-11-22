@@ -1,0 +1,30 @@
+.leftDiv {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1vw 0 2vw 1.9vw;
+  height: 100vh;
+  box-sizing: border-box;
+
+  img {
+    object-fit: contain;
+  }
+
+  .topLeft {
+    width: 23vw;
+  }
+  .topLeftSub {
+    width: 16vw;
+  }
+  .middleLeft {
+    width: 5.2vw;
+    margin: auto 0;
+  }
+  .bottomLeft {
+    width: 10vw;
+    margin-top: auto;
+  }
+}

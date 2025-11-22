@@ -1,7 +1,8 @@
 import styles from "./App.module.scss";
+import Page from "./components/Page/Page";
 
 function App() {
-  return <main className={styles.main}></main>;
+  return <Page /> ;
 }
 
 export default App;
