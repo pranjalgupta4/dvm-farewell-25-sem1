@@ -4,10 +4,17 @@ import topRightSub from "/svgs/top-right-sub.svg";
 import middleRight1 from "/svgs/middle-right-1.svg";
 import middleRight2 from "/svgs/middle-right-2.svg";
 import middleRight3 from "/imgs/middle-right-3.png";
+import COCButton from "../cocButton/COCButton";
+import { FaVolumeHigh } from "react-icons/fa6";
+import { FaVolumeMute } from "react-icons/fa";
+import { useState } from "react";
 
-function RightDiv() {
+function RightDiv({ className }) {
+
+  const [musicPlaying, setMusicPlaying] = useState(false); // later recieved via state
+
   return (
-    <div className={styles.rightDiv}>
+    <div className={`${styles.rightDiv} ${className}`}>
       <img src={topRight} alt="topRight" className={styles.topRight} />
       <img src={topRightSub} alt="topRightSub" className={styles.topRightSub} />
       <img
@@ -20,11 +27,18 @@ function RightDiv() {
         alt="middleRight2"
         className={styles.middleRight2}
       />
-      <img
+      {/* <img
         src={middleRight3}
         alt="middleRight3"
         className={styles.middleRight3}
-      />
+      /> */}
+      <COCButton className={styles.middleRight3} onClick={() => setMusicPlaying(prev => !prev)}>
+        {
+          musicPlaying ? 
+            <FaVolumeHigh className={styles.volumeIcon} strokeWidth={20} stroke="#000" /> 
+            : <FaVolumeMute className={styles.volumeIcon} strokeWidth={20} stroke="#000" />
+        }
+      </COCButton>
     </div>
   );
 }

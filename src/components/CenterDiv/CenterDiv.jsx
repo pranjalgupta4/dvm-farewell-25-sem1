@@ -4,18 +4,19 @@ import { useState, useEffect, useRef } from "react";
 
 import backButton from "/svgs/back-button.svg";
 import forwardButton from "/svgs/forward-button.svg";
-import backColor from "/svgs/back-color.svg";
-import appBW from "/svgs/app-bw.svg";
-import designBW from "/svgs/design-bw.svg";
-import frontBW from "/svgs/front-bw.svg";
-import threeDBW from "/svgs/3d-bw.svg";
-import twoDBW from "/svgs/2d-bw.svg";
 import cardImage from "/imgs/dummy.png";
 import transition from "/video/transition.mp4";
 
+import adobeAELogo from "/imgs/adobe-ae-logo.png";
+import blenderLogo from "/imgs/blender-logo.png";
+import figmaLogo from "/imgs/figma-logo.png";
+import flutterLogo from "/imgs/flutter-logo.png";
+import pythonLogo from "/imgs/python-logo.png";
+import reactLogo from "/imgs/react-logo.png";
 import seniors from "./seniors";
+import BottomDiv from "../BottomDiv/BottomDiv";
 
-function CenterDiv() {
+function CenterDiv({ className }) {
   let targetDate = new Date("Nov 28, 2025 00:00:00").getTime();
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
@@ -82,7 +83,7 @@ function CenterDiv() {
   }, [isAnimating]);
 
   return (
-    <>
+    <div className={className}>
       <video src={transition} ref={videoRef}></video>
       <div className={styles.centerDiv}>
         <div className={styles.timer}>
@@ -150,7 +151,7 @@ function CenterDiv() {
             }`}
           >
             <p>x5</p>
-            <img src={backColor} alt="back" />
+            <img src={pythonLogo} alt="back" />
           </div>
           <div
             className={`${styles.verticalItem} ${
@@ -158,7 +159,7 @@ function CenterDiv() {
             }`}
           >
             <p>x4</p>
-            <img src={appBW} alt="app" />
+            <img src={flutterLogo} alt="app" />
           </div>
           <div
             className={`${styles.verticalItem} ${
@@ -166,7 +167,7 @@ function CenterDiv() {
             }`}
           >
             <p>x4</p>
-            <img src={designBW} alt="design" />
+            <img src={figmaLogo} alt="design" />
           </div>
           <div
             className={`${styles.verticalItem} ${
@@ -174,7 +175,7 @@ function CenterDiv() {
             }`}
           >
             <p>x4</p>
-            <img src={threeDBW} alt="3d" />
+            <img src={blenderLogo} alt="3d" />
           </div>
           <div
             className={`${styles.verticalItem} ${
@@ -182,7 +183,7 @@ function CenterDiv() {
             }`}
           >
             <p>x4</p>
-            <img src={frontBW} alt="front" />
+            <img src={reactLogo} alt="front" />
           </div>
           <div
             className={`${styles.verticalItem} ${
@@ -190,11 +191,12 @@ function CenterDiv() {
             }`}
           >
             <p>x4</p>
-            <img src={twoDBW} alt="2d" />
+            <img src={adobeAELogo} alt="2d" />
           </div>
         </div>
       </div>
-    </>
+      <BottomDiv />
+    </div>
   );
 }
 

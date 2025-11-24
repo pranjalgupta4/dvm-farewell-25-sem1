@@ -1,0 +1,36 @@
+@use '../../App.module.scss' as *;
+
+.bottomDiv {
+    position: relative;
+    // bottom: 0rem;
+    width: calc(100% - 2rem);
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+
+    @media (min-width: $mobileBreakpoint) {
+        display: none;
+    }
+
+    .attackButton {
+        width: 6rem;
+    }
+
+    .festContainer {
+        display: flex;
+        gap: 1rem;
+
+        img {
+            width: 3.6rem;
+        }
+    }
+
+    .soundButton {
+        width: 6rem;
+
+        .volumeIcon {
+            font-size: clamp(3rem, 9vw, 5rem);
+            color: white;
+        }
+    }
+}

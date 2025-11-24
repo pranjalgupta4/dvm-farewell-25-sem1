@@ -1,3 +1,5 @@
+@use '../../App.module.scss' as *;
+
 .rightDiv {
   display: flex;
   flex-direction: column;
@@ -26,5 +28,19 @@
   .middleRight3 {
     width: 5.2vw;
     cursor: pointer;
+
+    .volumeIcon {
+      font-size: clamp(1rem, 3vw, 3rem);
+      color: white;
+    }
+  }
+
+  @media (max-width: $mobileBreakpoint) {
+    min-height: 0;
+    height: fit-content;
+    
+    .middleRight1, .middleRight2, .middleRight3 {display: none;}
+    .topRight {width: 30vw;}
+    .topRightSub {width: 24vw;}
   }
 }

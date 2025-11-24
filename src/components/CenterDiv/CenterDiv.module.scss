@@ -1,3 +1,5 @@
+@use "../../App.module.scss"  as *;
+
 .centerDiv {
   position: absolute;
   top: 0;
@@ -6,7 +8,12 @@
   flex-direction: column;
   align-items: center;
   // justify-content: space-around;
-  min-height: 100vh;
+  // min-height: 100vh;
+
+  @media (max-width: $mobileBreakpoint) {
+    position: relative;
+    left: 0;
+  }
 
   .timer {
     display: flex;
@@ -16,7 +23,7 @@
     margin: 1.4vw 0 0 0;
 
     .timerUpper {
-      font-size: 1.1vw;
+      font-size: clamp(0.6rem, 1.1vw, 1.5rem);
       color: #e6c3bc;
       font-family: supercell;
       text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
@@ -24,7 +31,7 @@
     }
 
     .timerLower {
-      font-size: 1.7vw;
+      font-size: clamp(1rem, 1.7vw, 1.8rem);
       color: #ffffff;
       font-family: supercell;
       text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
@@ -43,6 +50,10 @@
     margin: 1vw 0;
     padding: 0.8vw 0.5vw 0.6vw 0.5vw;
 
+    @media (max-width: $mobileBreakpoint){
+      width: 90vw;
+    }
+
     .carouselHeader {
       display: flex;
       justify-content: space-between;
@@ -50,13 +61,13 @@
       margin-bottom: 0.5vw;
 
       .backButton {
-        width: 6vw;
+        width: clamp(2.7rem, 6vw, 5rem);
         cursor: pointer;
       }
 
       .carouselTitle {
         font-family: supercell;
-        font-size: 1.4vw;
+        font-size: clamp(0.7rem, 1.4vw, 2rem);
         color: #ffffff;
       }
     }
@@ -68,36 +79,41 @@
       background-color: #e6e7d7;
       border-radius: 0.6vw;
       padding: 1.4vw 0 1.56vw 0;
+      @media (max-width: $mobileBreakpoint) {
+        padding: 2.4vw 0;
+      }
 
       .card {
         display: flex;
         padding-left: 2vw;
-        gap: 4vw;
+        gap: 2vw;
 
         .cardImage {
-          width: 22.8vw;
+          width: 45%;
         }
 
         .cardDetails {
           display: flex;
+          flex: 1;
           flex-direction: column;
           justify-content: center;
           gap: 1.5vw;
+          padding-right: 2vw;
 
           .subDetailsBox {
             display: grid;
-            grid-template-columns: 10vw 12vw;
+            grid-template-columns: 40% 48%;
             justify-content: center;
 
             .field {
               font-family: supercell;
-              font-size: 1.3vw;
+              font-size: clamp(0.6rem, 1.3vw, 2rem);
               color: #2a548e;
             }
 
             .value {
               font-family: supercell;
-              font-size: 1.3vw;
+              font-size: clamp(0.6rem, 1.3vw, 2rem);
               color: #000;
             }
           }
@@ -111,7 +127,7 @@
 
       .message {
         font-family: supercell;
-        font-size: 1.2vw;
+        font-size: clamp(0.6rem, 1.2vw, 2rem);
         color: #2a548e;
         text-align: center;
         padding: 0 4vw;
@@ -126,6 +142,11 @@
     padding: 0.7vw;
     background-color: hsla(0, 0%, 0%, 0.4);
 
+    @media (max-width: $mobileBreakpoint) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
     .verticalItem {
       display: flex;
       flex-direction: column;
@@ -136,11 +157,13 @@
       border: 2.2px solid black;
       width: 7vw;
 
+      @media (max-width: $mobileBreakpoint) {width: 20vw}
+
       p {
         border-top-left-radius: 0.7vw;
         border-top-right-radius: 0.7vw;
         font-family: supercell;
-        font-size: 1.2vw;
+        font-size: clamp(0.63rem, 1.2vw, 1rem);
         color: #fff;
         text-shadow: -1.3px -1.3px 0 black, 1.3px -1.3px 0 black,
           -1.3px 1.3px 0 black, 1.3px 1.3px 0 black;
@@ -154,6 +177,11 @@
       img {
         margin: 0.8vw auto 1.6vw auto;
         height: 3.75vw;
+
+        @media (max-width: $mobileBreakpoint) {
+          height: 8vw;
+          padding-bottom: 0.3rem;
+        }
       }
     }
     .inactive {
@@ -165,12 +193,14 @@
           -1.3px 1.3px 0 black, 1.3px 1.3px 0 black;
         background-color: transparent;
       }
+
+      img {filter: grayscale(1);}
     }
   }
 }
 
 video{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
