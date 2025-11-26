@@ -6,6 +6,8 @@ import middleLeft from "/svgs/middle-left.svg";
 import bottomLeft from "/svgs/bottom-left.svg";
 import { useState } from "react";
 import ClanChat from "../ClanChat/ClanChat";
+import chatIcon from "/imgs/chat-icon.png"
+import COCButton from "../cocButton/COCButton";
 
 function LeftDiv({ className }) {
   const [chatOpen, isChatOpen] = useState(false);
@@ -17,7 +19,11 @@ function LeftDiv({ className }) {
         <img src={trophyCountImg} alt="topLeftSub" className={styles.topLeftSub} />
         <div className={styles.trophyCount}>2025</div>
       </div>
-      <img src={middleLeft} alt="middleLeft" className={styles.middleLeft} onClick={() => isChatOpen(true)} />
+      <div className={styles.chatButtonWrapper}>
+        <COCButton className={styles.middleLeft} onClick={() => isChatOpen(true)} color="#C46A15">
+          <img src={chatIcon} alt="chat" />
+        </COCButton>
+      </div>
       <img src={bottomLeft} alt="bottomLeft" className={styles.bottomLeft} />
       <ClanChat chatOpened={chatOpen} onClose={() => isChatOpen(false)} />
     </div>

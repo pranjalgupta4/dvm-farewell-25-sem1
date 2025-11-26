@@ -15,11 +15,14 @@
   .topLeft {
     width: 23vw;
   }
+
   .trophyCountWrapper {
     position: relative;
+
     .topLeftSub {
       width: 16vw;
     }
+
     .trophyCount {
       position: absolute;
       transform: translate(-50%, -50%);
@@ -32,10 +35,31 @@
         2px 2px 0 black;
     }
   }
-  .middleLeft {
-    width: 5.2vw;
+
+  .chatButtonWrapper {
     margin: auto 0;
+    background-color: #282626;
+    border: 2px solid black;
+    border-left: 0px;
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
+    padding: 0.24rem;
+    transform: translateX(-3px);
+
+    .middleLeft {
+      width: 3.6vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      img {
+        width: 2.4vw;
+        aspect-ratio: 0.5;
+      }
+    }
   }
+
   .bottomLeft {
     width: 10vw;
     margin-top: auto;
@@ -45,8 +69,17 @@
     min-height: 0;
     height: fit-content;
 
-    .middleLeft, .bottomLeft {display: none;}
-    .topLeft {width: 42vw;}
-    .trophyCountWrapper .topLeftSub {width: 30vw;}
+    .middleLeft,
+    .bottomLeft {
+      display: none;
+    }
+
+    .topLeft {
+      width: 42vw;
+    }
+
+    .trophyCountWrapper .topLeftSub {
+      width: 30vw;
+    }
   }
 }
