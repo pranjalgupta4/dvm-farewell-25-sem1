@@ -21,7 +21,7 @@
     flex-direction: column;
     align-items: center;
     gap: 0;
-    
+
     .timerUpper {
       margin: 1.3vw 0 0.3vw 0;
       font-size: clamp(0.4rem, 1.3vw, 1.5rem);
@@ -30,6 +30,10 @@
       text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
         2px 2px 0 black;
       letter-spacing: 1.1px;
+      @media (max-width: $mobileBreakpoint) {
+        font-size: 3.5vw;
+        margin-bottom: 1vw;
+      }
     }
 
     .timerLower {
@@ -38,6 +42,9 @@
       font-family: supercell;
       text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
         2px 2px 0 black;
+      @media (max-width: $mobileBreakpoint) {
+        font-size: 5.5vw;
+      }
     }
   }
 
@@ -54,6 +61,7 @@
 
     @media (max-width: $mobileBreakpoint) {
       width: 90vw;
+      padding: 2.4vw 1.5vw 1.5vw 1.5vw;
     }
 
     .carouselHeader {
@@ -61,16 +69,25 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 0.5vw;
+      @media (max-width: $mobileBreakpoint) {
+        margin-bottom: 2vw;
+      }
 
       .backButton {
         width: clamp(2rem, 6.3vw, 10rem);
         cursor: pointer;
+        @media (max-width: $mobileBreakpoint) {
+          width: 12vw;
+        }
       }
 
       .carouselTitle {
         font-family: supercell;
         font-size: clamp(0.5rem, 1.6vw, 4rem);
         color: #ffffff;
+        @media (max-width: $mobileBreakpoint) {
+          font-size: 4vw;
+        }
       }
     }
 
@@ -101,6 +118,9 @@
           justify-content: center;
           gap: 1.5vw;
           padding-right: 2vw;
+          @media (max-width: $mobileBreakpoint) {
+            gap: 3vw;
+          }
 
           .subDetailsBox {
             display: grid;
@@ -111,18 +131,27 @@
               font-family: supercell;
               font-size: clamp(0.4rem, 1.4vw, 3rem);
               color: #2a548e;
+              @media (max-width: $mobileBreakpoint) {
+                font-size: clamp(0.4rem, 3vw, 7rem);
+              }
             }
 
             .value {
               font-family: supercell;
               font-size: clamp(0.4rem, 1.4vw, 3rem);
               color: #000;
+              @media (max-width: $mobileBreakpoint) {
+                font-size: clamp(0.4rem, 3vw, 7rem);
+              }
             }
           }
           .divider {
             width: 90%;
             height: 2px;
             background-color: #858676;
+            @media (max-width: $mobileBreakpoint) {
+              height: 1px;
+            }
           }
         }
       }
@@ -133,6 +162,10 @@
         color: #2a548e;
         text-align: center;
         padding: 0 4vw;
+        @media (max-width: $mobileBreakpoint) {
+          font-size: clamp(0.4rem, 3.5vw, 7rem);
+          margin: 2vw 0;
+        }
       }
     }
   }
@@ -148,8 +181,10 @@
     height: 10vw;
 
     @media (max-width: $mobileBreakpoint) {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      border: 2px solid black;
+      height: auto;
+      padding: 1.5vw 3vw;
+      margin: 2vw 0 0 0;
     }
 
     .verticalItem {
@@ -164,7 +199,7 @@
       cursor: pointer;
 
       @media (max-width: $mobileBreakpoint) {
-        width: 20vw;
+        width: 14vw;
       }
 
       p {
@@ -180,6 +215,9 @@
         text-align: center;
         padding: 0.3vw 0;
         box-sizing: border-box;
+        @media (max-width: $mobileBreakpoint) {
+          padding: 1vw 0;
+        }
       }
 
       img {
@@ -187,6 +225,7 @@
         height: 3.75vw;
 
         @media (max-width: $mobileBreakpoint) {
+          margin: 1.3vw auto 1.6vw auto;
           height: 8vw;
           padding-bottom: 0.3rem;
         }

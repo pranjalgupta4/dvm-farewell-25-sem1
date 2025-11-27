@@ -5,10 +5,10 @@
     // bottom: 0rem;
     width: calc(100% - 2rem);
     display: flex;
-    padding: 1rem;
+    padding: 0 1vw 1vw 1vw;
     justify-content: center;
     gap: 0.6rem;
-    margin-top: auto;
+    // margin-top: auto;
 
     @media (min-width: $mobileBreakpoint) {
         display: none;
@@ -69,21 +69,21 @@
         gap: 0.6rem;
 
         .festLogoWrapper {
-            width: 3.6rem;
-            height: 3.6rem;
+            width: 2.3rem;
+            height: 2.3rem;
             display: flex;
             align-items: center;
             justify-content: center;
 
             img {
-                width: 2.4rem;
+                width: 1.5rem;
             }
         }
     }
 
     .soundButton {
-        width: 3.6rem;
-        height: 3.6rem;
+        width: 2.3rem;
+        height: 2.3rem;
         aspect-ratio: 1;
         border-width: 2px;
         display: flex;
@@ -91,7 +91,7 @@
         justify-content: center;
 
         .volumeIcon {
-            font-size: clamp(2.4rem, 6vw, 5rem);
+            font-size: clamp(1rem, 6vw, 5rem);
             color: white;
             overflow: visible;
         }
