@@ -110,7 +110,7 @@ function CenterDiv({ className }) {
           <div className={styles.cardBox}>
             <div className={styles.card}>
               <img
-                src={cardImage}
+                src={seniors[currentIndex].img}
                 alt="card image"
                 className={styles.cardImage}
               />
