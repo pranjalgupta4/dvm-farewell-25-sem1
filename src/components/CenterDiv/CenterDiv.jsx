@@ -15,6 +15,7 @@ import pythonLogo from "/imgs/python-logo.png";
 import reactLogo from "/imgs/react-logo.png";
 import seniors from "./seniors";
 import BottomDiv from "../BottomDiv/BottomDiv";
+import CloudAnimation from "../CloudAnimation/CloudAnimation";
 
 function CenterDiv({ className }) {
   let targetDate = new Date("Nov 29, 2025 00:00:00").getTime();
@@ -26,14 +27,14 @@ function CenterDiv({ className }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const videoRef = useRef(null);
+  // const videoRef = useRef(null);
 
   function handleTransition(indexChange) {
     if (isAnimating) return;
     setIsAnimating(true);
     setTimeout(() => {
       indexChange();
-      setIsAnimating(false);
+      setTimeout(() => setIsAnimating(false), 2000);
     }, 2000);
   }
 
@@ -58,20 +59,10 @@ function CenterDiv({ className }) {
     return () => clearInterval(intervalId);
   }, [targetDate]);
 
-  useEffect(() => {
-    if (isAnimating && videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play();
-      videoRef.current.style.display = "block";
-    } else if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.style.display = "none";
-    }
-  }, [isAnimating]);
-
   return (
     <div className={className}>
-      <video src={transition} ref={videoRef}></video>
+      {/* <video src={transition} ref={videoRef}></video> */}
+      { isAnimating && <CloudAnimation /> }
       <div className={styles.centerDiv}>
         <div className={styles.timer}>
           <p className={styles.timerUpper}>Farewell ‘25 starts in:</p>

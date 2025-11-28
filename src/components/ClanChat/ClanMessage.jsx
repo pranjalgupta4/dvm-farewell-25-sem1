@@ -11,7 +11,7 @@ const messageList = [
     ["BC", "bc", "BENCHOD", "benchodd"]
 ]
 
-export default function ClanMessage({  self }) {
+export default function ClanMessage({ self }) {
 
     const messageRef = useRef(messageList.map(list => list[randInt(list.length)]).join(" "));
     // const messageTimeRef = useRef()
