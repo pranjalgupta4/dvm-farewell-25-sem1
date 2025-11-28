@@ -29,12 +29,18 @@ function CenterDiv({ className }) {
   const videoRef = useRef(null);
 
   function handleTransition(indexChange) {
-    if (isAnimating) return;
-    setIsAnimating(true);
     setTimeout(() => {
       indexChange();
       setIsAnimating(false);
     }, 2000);
+  }
+
+  function handleVerticalChange(code) {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    handleTransition(() => {
+      setCurrentIndex(seniors.findIndex((senior) => senior.code === code));
+    });
   }
 
   useEffect(() => {
@@ -86,11 +92,23 @@ function CenterDiv({ className }) {
               alt="back button"
               className={styles.backButton}
               onClick={() => {
-                handleTransition(() => {
+                if (
+                  seniors[currentIndex].code !==
+                  seniors[
+                    currentIndex === 0 ? seniors.length - 1 : currentIndex - 1
+                  ].code
+                ) {
+                  setIsAnimating(true);
+                  handleTransition(() => {
+                    setCurrentIndex((prevIndex) =>
+                      prevIndex === 0 ? seniors.length - 1 : prevIndex - 1
+                    );
+                  });
+                } else {
                   setCurrentIndex((prevIndex) =>
                     prevIndex === 0 ? seniors.length - 1 : prevIndex - 1
                   );
-                });
+                }
               }}
             />
             <p className={styles.carouselTitle}>{seniors[currentIndex].name}</p>
@@ -99,11 +117,24 @@ function CenterDiv({ className }) {
               alt="forward button"
               className={styles.backButton}
               onClick={() => {
-                handleTransition(() => {
+                if (isAnimating) return;
+                if (
+                  seniors[currentIndex].code !==
+                  seniors[
+                    currentIndex === seniors.length - 1 ? 0 : currentIndex + 1
+                  ].code
+                ) {
+                  setIsAnimating(true);
+                  handleTransition(() => {
+                    setCurrentIndex((prevIndex) =>
+                      prevIndex === seniors.length - 1 ? 0 : prevIndex + 1
+                    );
+                  });
+                } else {
                   setCurrentIndex((prevIndex) =>
                     prevIndex === seniors.length - 1 ? 0 : prevIndex + 1
                   );
-                });
+                }
               }}
             />
           </div>
@@ -148,11 +179,7 @@ function CenterDiv({ className }) {
               seniors[currentIndex].code === "back" ? "" : styles.inactive
             }`}
             onClick={() => {
-              handleTransition(() => {
-                setCurrentIndex(
-                  seniors.findIndex((senior) => senior.code === "back")
-                );
-              });
+              handleVerticalChange("back");
             }}
           >
             <p>x5</p>
@@ -163,11 +190,7 @@ function CenterDiv({ className }) {
               seniors[currentIndex].code === "app" ? "" : styles.inactive
             }`}
             onClick={() => {
-              handleTransition(() => {
-                setCurrentIndex(
-                  seniors.findIndex((senior) => senior.code === "app")
-                );
-              });
+              handleVerticalChange("app");
             }}
           >
             <p>x4</p>
@@ -178,11 +201,7 @@ function CenterDiv({ className }) {
               seniors[currentIndex].code === "design" ? "" : styles.inactive
             }`}
             onClick={() => {
-              handleTransition(() => {
-                setCurrentIndex(
-                  seniors.findIndex((senior) => senior.code === "design")
-                );
-              });
+              handleVerticalChange("design");
             }}
           >
             <p>x4</p>
@@ -193,11 +212,7 @@ function CenterDiv({ className }) {
               seniors[currentIndex].code === "video" ? "" : styles.inactive
             }`}
             onClick={() => {
-              handleTransition(() => {
-                setCurrentIndex(
-                  seniors.findIndex((senior) => senior.code === "video")
-                );
-              });
+              handleVerticalChange("video");
             }}
           >
             <p>x4</p>

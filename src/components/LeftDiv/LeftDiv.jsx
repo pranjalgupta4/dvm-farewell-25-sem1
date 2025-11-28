@@ -51,7 +51,7 @@ function LeftDiv({ className }) {
             ))}
         </div>
         <img className={styles.mapImg} src={mapIcon} />
-        <div className={styles.attackLabel}>DDoS</div>
+        <div className={styles.attackLabel}>Attack!</div>
       </COCButton>
       <ClanChat chatOpened={chatOpen} onClose={() => isChatOpen(false)} />
     </div>
